@@ -26,7 +26,7 @@ export const FormContainer = styled.div`
   font-weight: bold;
   flex-wrap: wrap;
 `
-
+// Cria uma base de estilos que depois será reaproveitada em mais de um componente
 const BaseInput = styled.input`
   background-color: transparent;
   height: 2.5rem;
