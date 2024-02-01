@@ -47,19 +47,6 @@ export function CyclesContextProvider({
     setAmountSecondsPassed(seconds)
   }
 
-  // Marca o ciclo como finalizado
-  function markCurrentCycleAsFinished() {
-    setCycles((state) =>
-      state.map((cycle) => {
-        if (cycle.id === activeCycleId) {
-          return { ...cycle, finishedDate: new Date() }
-        } else {
-          return cycle
-        }
-      }),
-    )
-  }
-
   // Criar um ciclo novo
   function createNewCicle(data: CreateCycleData) {
     const id = String(new Date().getTime())
@@ -74,8 +61,20 @@ export function CyclesContextProvider({
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
+  }
 
-    // reset()
+  // Marca o ciclo como finalizado
+  function markCurrentCycleAsFinished() {
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycleId) {
+          setActiveCycleId(null)
+          return { ...cycle, finishedDate: new Date() }
+        } else {
+          return cycle
+        }
+      }),
+    )
   }
 
   // Interromper Cycle
