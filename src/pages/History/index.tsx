@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import {} from 'date-fns'
 import { HistoryContainer, HistoryList, Status } from './styles'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
@@ -35,7 +36,7 @@ export function History() {
                     )}
 
                     {!cycle.finishedDate && !cycle.interruptedDate && (
-                      <Status $statusColor="yellow">Concluído</Status>
+                      <Status $statusColor="yellow">Em andamento</Status>
                     )}
                   </td>
                 </tr>
